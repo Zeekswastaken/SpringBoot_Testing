@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  my-postgres:
+    image: postgres:latest
+    restart: always
+    container_name: localhost
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: student
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - Spring
+
+networks:
+  Spring:
+
+volumes:
+  pgdata:
